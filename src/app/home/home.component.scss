@@ -1,0 +1,32 @@
+.home {
+    padding: 30px;
+}
+.todo-form {
+    margin-inline-end: 20px;
+    margin-block-end: 20px;
+}
+.mat-list .mat-divider:last-child{
+    display: none;
+}
+.todo-list-item {
+    display: flex;
+    flex: 1 1 1px;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    .todo-actions button{
+        margin-inline-end: 8px;
+    }
+
+    .todo-actions {
+        .cancel-btn {
+            background-color: #a0a0a0;
+        }
+
+        .save-btn {
+            background-color: #85d676;
+        }
+    }
+    
+}
