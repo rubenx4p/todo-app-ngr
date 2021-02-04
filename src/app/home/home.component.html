@@ -1,46 +1,50 @@
-<div class="home">
+<div class="home mat-app-background mat-elevation-z3">
     <!-- <mat-card>Simple card</mat-card> -->
     <mat-form-field class="todo-form">
         <mat-label>My todo Description</mat-label>
         <input matInput type="text" [(ngModel)]="value" (keyup.enter)="add()">
         <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-          <mat-icon>close</mat-icon>
+            <mat-icon>close</mat-icon>
         </button>
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="add()">Add</button>
-    
+
 
     <mat-card *ngIf="todoList.length > 0">
+        <mat-divider></mat-divider>
         <mat-list role="list">
             <ng-container *ngFor="let todo of todoList">
                 <mat-list-item role="listitem">
                     <div class="todo-list-item">
-                        <span class="todo-title" *ngIf="todo.id !== editTodoId" >{{todo.value}}</span>
+                        <span class="todo-title" *ngIf="todo.id !== editTodoId">{{todo.value}}</span>
                         <mat-form-field *ngIf="todo.id === editTodoId">
-                            <input matInput type="text" [(ngModel)]="editValue" (keyup.enter)="editValue !== '' && save(todo, editValue)" (keyup.escape)="cancel()">
-                            <button mat-button *ngIf="editValue" matSuffix mat-icon-button aria-label="Clear" (click)="editValue=''">
-                              <mat-icon>close</mat-icon>
+                            <input matInput type="text" [(ngModel)]="editValue"
+                                (keyup.enter)="editValue !== '' && save(todo, editValue)" (keyup.escape)="cancel()">
+                            <button mat-button *ngIf="editValue" matSuffix mat-icon-button aria-label="Clear"
+                                (click)="editValue=''">
+                                <mat-icon>close</mat-icon>
                             </button>
                         </mat-form-field>
                         <div class="todo-actions">
                             <ng-container *ngIf="todo.id !== editTodoId">
-                                <button mat-raised-button color="warn" (click)="remove(todo)" [disabled]="editTodoId !== ''">Remove</button>
-                                <button mat-raised-button color="primary" (click)="edit(todo)" [disabled]="editTodoId !== ''">Edit</button>
+                                <button mat-raised-button color="warn" (click)="remove(todo)"
+                                    [disabled]="editTodoId !== ''">Remove</button>
+                                <button mat-raised-button color="primary" (click)="edit(todo)"
+                                    [disabled]="editTodoId !== ''">Edit</button>
                             </ng-container>
-                            <button mat-raised-button color="primary" *ngIf="todo.id === editTodoId" class="cancel-btn" (click)="cancel()">Cancel</button>
-                            <button mat-raised-button color="primary" *ngIf="todo.id === editTodoId" color="primary"  (click)="save(todo, editValue)" [disabled]="editValue === ''">Save</button>
+                            <button mat-raised-button color="primary" *ngIf="todo.id === editTodoId" class="cancel-btn"
+                                (click)="cancel()">Cancel</button>
+                            <button mat-raised-button color="primary" *ngIf="todo.id === editTodoId" color="primary"
+                                (click)="save(todo, editValue)" [disabled]="editValue === ''">Save</button>
                         </div>
                     </div>
-                    
+
                 </mat-list-item>
                 <mat-divider></mat-divider>
             </ng-container>
-            
-            
-          </mat-list>
-        <!-- <div *ngFor="let todo of todoList">
-            {{todo.value}}
-        </div> -->
-        <!-- <div ></div> -->
+
+
+        </mat-list>
+        <mat-divider></mat-divider>
     </mat-card>
 </div>

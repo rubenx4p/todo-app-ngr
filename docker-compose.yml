@@ -1,0 +1,19 @@
+version: "3"
+services: 
+    web-todo-app:
+        container_name: web-todo-app
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes: 
+            - /usr/src/app/node_modules
+            - .:/usr/src/app/
+        restart: always
+        ports: 
+            - "4200:4200"
+        stdin_open: true
+        command: > 
+            bash -c "npm install && ng serve --host 0.0.0.0"
+
+# Run docker-compose:
+# docker-compose up --build

@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from "@angular/material/button";
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatListModule} from '@angular/material/list';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
+
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [],
@@ -23,4 +25,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatDividerModule
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {
+  constructor(overlayContainer: OverlayContainer) {
+    overlayContainer.getContainerElement().classList.add('unicorn-dark-theme');
+  }
+}
